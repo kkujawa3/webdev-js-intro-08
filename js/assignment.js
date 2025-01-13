@@ -6,3 +6,46 @@ const largestNumberElement = document.getElementById("largest-number");
 const averageNumberElement = document.getElementById("average-number");
 
 const myNumbers = [35, 130, 354, 100, 25, 134, 99, 200, 35];
+
+
+function findSmallestNumber(arr) {
+    let smallest = arr[0];
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < smallest) {
+            smallest = arr[i];   
+        }
+    }
+    smallestNumberElement.textContent = smallest;
+}    
+
+function findLargestNumber(arr) {
+    let largest = arr[0];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > largest) {
+            largest = arr[i];
+        }
+    }
+    largestNumberElement.textContent = largest;
+}
+
+function findAverage(arr) {
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    let average = sum / arr.length;
+    averageNumberElement.textContent = average;
+}
+
+function render() {
+    findSmallestNumber(myNumbers);  
+    findLargestNumber(myNumbers);  
+    findAverage(myNumbers);
+}
+    
+submissionBtn.addEventListener("click", function () {
+    render();
+});
